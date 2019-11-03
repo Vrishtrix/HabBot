@@ -1,0 +1,13 @@
+mysql:
+    host: 'localhost'
+    user: 'root'
+    passwd: '<your_pass_here>'
+    db: '<your_db_here>'
+    port: '3306'
+
+bot:
+    token: '<bot_token_here>'
+    cmd_prefix: ':'
+
+server:
+    welcome_channel: '<welcome_channel_id_here>'
