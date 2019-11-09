@@ -5,6 +5,10 @@ mysql:
     db: '<your_db_here>'
     port: '3306'
 
+hotel:
+    name: 'Habbo'
+    url: '<your_hotel_url>'
+
 bot:
     token: '<bot_token_here>'
     cmd_prefix: ':'
