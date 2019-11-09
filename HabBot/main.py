@@ -2,6 +2,15 @@ import yaml
 import discord
 from discord.ext import commands, tasks
 
+print('''
+  _    _       _     ____        _
+ | |  | |     | |   |  _ \      | |
+ | |__| | __ _| |__ | |_) | ___ | |_
+ |  __  |/ _` | '_ \|  _ < / _ \| __|
+ | |  | | (_| | |_) | |_) | (_) | |_
+ |_|  |_|\__,_|_.__/|____/ \___/ \__|
+                        By: Vrishtrix
+ ''')
 #Loads the configuration file.
 with open('configuration.yml', 'r') as configfile:
     cfg = yaml.safe_load(configfile)
@@ -32,5 +41,7 @@ async def on_member_remove(member):
     msg.set_footer(text=f'{member.name} has left {member.guild}.')
 
     await habbot.get_channel(cfg['server']['welcome_channel']).send(embed=msg)
+
+habbot.load_extension('cogs.utility.CommandsCommand')
 
 habbot.run(cfg['bot']['token'])
