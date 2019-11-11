@@ -1,7 +1,6 @@
 # Ignore editor related files and configuration
-.gitpod
-.theia
 .vscode
+goorm.manifest
 
 # Ignores virtual environment
 .venv
