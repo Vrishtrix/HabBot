@@ -42,6 +42,10 @@ async def on_member_remove(member):
 
     await habbot.get_channel(cfg['server']['welcome_channel']).send(embed=msg)
 
-habbot.load_extension('cogs.utility.CommandsCommand')
+utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand']
+
+#Loads the utility commands.
+for command in utilitycms:
+    habbot.load_extension(command)
 
 habbot.run(cfg['bot']['token'])

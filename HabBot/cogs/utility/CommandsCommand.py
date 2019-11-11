@@ -18,7 +18,7 @@ class Commands(commands.Cog):
     async def commands(self, ctx):
         commands_embed = discord.Embed(title=f'HabBot - {hotelname}', description=f'Here is a list of commands you can \
         use. The prefix is `{cmdprefix}`, enjoy!', color=0x234572)
-        commands_embed.add_field(name='Utility', value='``commands``')
+        commands_embed.add_field(name='Utility', value='``commands, serverinfo``')
 
         await ctx.send(embed=commands_embed)
 
