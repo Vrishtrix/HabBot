@@ -45,7 +45,7 @@ async def on_member_remove(member):
 utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand']
 
 #Loads the utility commands.
-for command in utilitycms:
+for command in utilitycmds:
     habbot.load_extension(command)
 
 habbot.run(cfg['bot']['token'])
