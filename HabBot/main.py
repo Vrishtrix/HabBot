@@ -1,8 +1,9 @@
+import sys
 import yaml
 import discord
 from discord.ext import commands, tasks
 
-print('''
+print('''\033[1;34;40m
   _    _       _     ____        _
  | |  | |     | |   |  _ \      | |
  | |__| | __ _| |__ | |_) | ___ | |_
@@ -23,6 +24,7 @@ habbot.remove_command('help')
 @habbot.event
 async def on_ready():
     print('HabBot is now online!')
+    await execution()
 
 #Sends welcome message when a new member joins the server.
 @habbot.event
@@ -42,10 +44,18 @@ async def on_member_remove(member):
 
     await habbot.get_channel(cfg['server']['welcome_channel']).send(embed=msg)
 
-utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand']
+utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand', 'cogs.utility.AboutCommand']
 
 #Loads the utility commands.
 for command in utilitycmds:
     habbot.load_extension(command)
+        
+async def execution():
+    cmd = (input('HabBot -> '))
+    if cmd == 'shutdown':
+        print('Please wait until HabBot finishes cleaning up. \n')
+        sys.exit('HabBot successfully shut down!')
+
+    await execution()
 
 habbot.run(cfg['bot']['token'])
