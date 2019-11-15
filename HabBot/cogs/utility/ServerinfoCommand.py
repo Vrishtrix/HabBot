@@ -6,8 +6,8 @@ from discord.ext import commands
 #Loads the configuration file.
 with open('configuration.yml', 'r') as configfile:
     cfg = yaml.safe_load(configfile)
+
 hotelname = cfg['hotel']['name']
-cmdprefix = cfg['bot']['cmd_prefix']
 
 class Serverinfo(commands.Cog):
     def __init__(self, habbot):
@@ -23,8 +23,10 @@ class Serverinfo(commands.Cog):
                 online_users += 1
             if user.bot == True:
                 bot_users += 1
-        server_info_embed = discord.Embed(title='', color=0x1e85ca)
+        server_info_embed = discord.Embed(title=f'HabBot - {hotelname}', description='A simple bot written to integrate \
+        Habbo Retros with Discord.', color=0x234572)
         server_info_embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon_url)
+
         server_info_embed.add_field(
             name="Owner", value=str(ctx.guild.owner))
         server_info_embed.add_field(
@@ -51,6 +53,8 @@ class Serverinfo(commands.Cog):
             name="Offline", value=str(len(ctx.guild.members) - online_users))
         server_info_embed.set_footer(
             text=f"Server ID: {ctx.guild.id} | Server Created on {ctx.guild.created_at.date()}")
+        
+        server_info_embed.set_footer(text=f'HabBot - {hotelname}')
 
         await ctx.send(embed=server_info_embed)
 
