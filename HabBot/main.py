@@ -24,7 +24,6 @@ habbot.remove_command('help')
 @habbot.event
 async def on_ready():
     print('HabBot is now online!')
-    await execution()
 
 #Sends welcome message when a new member joins the server.
 @habbot.event
@@ -49,13 +48,5 @@ utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand',
 #Loads the utility commands.
 for command in utilitycmds:
     habbot.load_extension(command)
-        
-async def execution():
-    cmd = (input('HabBot -> '))
-    if cmd == 'shutdown':
-        print('Please wait until HabBot finishes cleaning up. \n')
-        sys.exit('HabBot successfully shut down!')
-
-    await execution()
 
 habbot.run(cfg['bot']['token'])
