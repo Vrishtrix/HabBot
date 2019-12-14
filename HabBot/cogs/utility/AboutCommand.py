@@ -16,7 +16,6 @@ class About(commands.Cog):
     #The command
     @commands.command(pass_context=True)
     async def about(self, ctx):
-        #Command content
         about_embed = discord.Embed(title='', description='A simple bot written to integrate \
         Habbo Retros with Discord.', color=0x234572)
         about_embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon_url)

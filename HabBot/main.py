@@ -12,11 +12,13 @@ print('''\033[1;34;40m
  |_|  |_|\__,_|_.__/|____/ \___/ \__|
                         By: Vrishtrix
  ''')
+
 #Loads the configuration file.
 with open('configuration.yml', 'r') as configfile:
     cfg = yaml.safe_load(configfile)
 
 #Bot Initialization.
+#habbot = commands.Bot(command_prefix=commands.when_mentioned_or(cfg['bot']['cmd_prefix']))
 habbot = commands.Bot(command_prefix=cfg['bot']['cmd_prefix'])
 habbot.remove_command('help')
 
@@ -43,10 +45,24 @@ async def on_member_remove(member):
 
     await habbot.get_channel(cfg['server']['welcome_channel']).send(embed=msg)
 
+@habbot.event
+async def on_message(message):
+    command_prefix=cfg['bot']['cmd_prefix']
+
+    if habbot.user.mentioned_in(message):
+        await message.channel.send(f'Hello there! Please type `{command_prefix}commands` for a list of commands!')
+    
+    await habbot.process_commands(message)
+
 utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand', 'cogs.utility.AboutCommand']
+funcmds = ['cogs.fun.RolldiceCommand']
 
 #Loads the utility commands.
 for command in utilitycmds:
+    habbot.load_extension(command)
+
+#Loads the fun commands.
+for command in funcmds:
     habbot.load_extension(command)
 
 habbot.run(cfg['bot']['token'])
