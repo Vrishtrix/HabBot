@@ -57,7 +57,7 @@ async def on_message(message):
 
 utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand', 'cogs.utility.AboutCommand']
 funcmds = ['cogs.fun.RolldiceCommand']
-moderationcmds = ['cogs.moderation.DMCommand', 'cogs.moderation.BanCommand']
+moderationcmds = ['cogs.moderation.DMCommand', 'cogs.moderation.BanCommand', 'cogs.moderation.SayCommand']
 
 #Loads the utility commands.
 for command in utilitycmds:
