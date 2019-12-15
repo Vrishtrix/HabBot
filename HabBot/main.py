@@ -2,6 +2,7 @@ import sys
 import yaml
 import discord
 from discord.ext import commands, tasks
+from discord.ext.commands import has_permissions, MissingPermissions
 
 print('''\033[1;34;40m
   _    _       _     ____        _
@@ -56,6 +57,7 @@ async def on_message(message):
 
 utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand', 'cogs.utility.AboutCommand']
 funcmds = ['cogs.fun.RolldiceCommand']
+moderationcmds = ['cogs.moderation.DMCommand', 'cogs.moderation.BanCommand']
 
 #Loads the utility commands.
 for command in utilitycmds:
@@ -63,6 +65,10 @@ for command in utilitycmds:
 
 #Loads the fun commands.
 for command in funcmds:
+    habbot.load_extension(command)
+
+#Loads the moderation commands.
+for command in moderationcmds:
     habbot.load_extension(command)
 
 habbot.run(cfg['bot']['token'])

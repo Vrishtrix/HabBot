@@ -21,8 +21,9 @@ class Commands(commands.Cog):
         use. The prefix is `{cmdprefix}`, enjoy!', color=0x234572)
         commands_embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon_url)
         
-        commands_embed.add_field(name='Utility', value='``commands, serverinfo, about``')
-        commands_embed.add_field(name='Fun', value='``rolldice``')
+        commands_embed.add_field(name='Utility', value='``commands, serverinfo, about``', inline=False)
+        commands_embed.add_field(name='Fun', value='``rolldice``', inline=False)
+        commands_embed.add_field(name='Moderation', value='``dm, ban``', inline=False)
         
         commands_embed.set_footer(text=f'HabBot - {hotelname}')
 
