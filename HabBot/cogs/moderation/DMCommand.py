@@ -13,6 +13,7 @@ class DM(commands.Cog):
     async def dm(self, ctx, member: discord.Member, *message):
         message = ' '.join(message)
         channel = await member.create_dm()
+        await ctx.message.delete()
         await channel.send(f'**{ctx.author.name} has sent:** {message}')
         await ctx.send(f'Message was sent to **{member.name}!**')
 
