@@ -55,9 +55,9 @@ async def on_message(message):
     
     await habbot.process_commands(message)
 
-utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand', 'cogs.utility.AboutCommand']
+utilitycmds = ['cogs.utility.CommandsCommand', 'cogs.utility.ServerinfoCommand', 'cogs.utility.AboutCommand', 'cogs.utility.ServerCommand']
 funcmds = ['cogs.fun.RolldiceCommand']
-moderationcmds = ['cogs.moderation.DMCommand', 'cogs.moderation.BanCommand', 'cogs.moderation.SayCommand']
+moderationcmds = ['cogs.moderation.DMCommand', 'cogs.moderation.BanCommand', 'cogs.moderation.SayCommand', 'cogs.moderation.KickCommand']
 
 #Loads the utility commands.
 for command in utilitycmds:
