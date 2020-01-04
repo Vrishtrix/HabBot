@@ -22,7 +22,7 @@ class Commands(commands.Cog):
         commands_embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon_url)
         
         commands_embed.add_field(name='Utility', value='``commands, serverinfo, about, invite``', inline=False)
-        commands_embed.add_field(name='Fun', value='``rolldice``', inline=False)
+        commands_embed.add_field(name='Fun', value='``rolldice, 8ball``', inline=False)
         commands_embed.add_field(name='Moderation', value='``dm, ban, say`', inline=False)
         
         commands_embed.set_footer(text=f'HabBot - {hotelname}')
